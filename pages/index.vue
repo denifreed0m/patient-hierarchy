@@ -3,7 +3,13 @@
     <div v-if="pending">Loading...</div>
     <div v-if="error" class="error">Error: {{ error.message }}</div>
 
-    <DataTable :data="transformedData" :level="0" :path="[]" />
+    <DataTable
+      v-if="transformedData.rows.length > 0 || transformedData.kids"
+      :data="transformedData"
+      :level="0"
+      :path="[]"
+    />
+    <div v-else class="my-6 p-6 border-0">No data</div>
   </div>
 </template>
 

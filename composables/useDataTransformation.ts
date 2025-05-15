@@ -2,6 +2,13 @@ import type { TableRow, TableData } from '~/types'
 
 export function useDataTransformation() {
   function transformData(data: TableRow[], title: string): TableData {
+    if (data.length === 0) {
+      return {
+        title: title,
+        columns: [],
+        rows: [],
+      }
+    }
     const result: TableData = {
       title: title,
       columns: Object.keys(data[0].data),
