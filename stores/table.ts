@@ -12,11 +12,10 @@ export const useTableStore = defineStore('table', {
     },
 
     toggleRow(index: string) {
-      const existingIndex = this.expandedRows.indexOf(index)
-      if (existingIndex === -1) {
+      if (!this.expandedRows.includes(index)) {
         this.expandedRows.push(index)
       } else {
-        this.expandedRows.splice(existingIndex, 1)
+        this.expandedRows = this.expandedRows.filter(row => row !== index)
       }
     },
 
