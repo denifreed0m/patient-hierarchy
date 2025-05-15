@@ -7,7 +7,7 @@ export function usePatientDeletion() {
 
   const deleteRows = async (rowsToDelete: string[]) => {
     try {
-      await useFetch('/api/patients', {
+      await $fetch('/api/patients', {
         method: 'DELETE',
         body: { row: rowsToDelete[rowsToDelete.length - 1] },
       })
